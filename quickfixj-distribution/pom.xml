@@ -140,9 +140,9 @@
 							<additionalparam>${javadoc.opts}</additionalparam>
 							<includeDependencySources>true</includeDependencySources>
 							<dependencySourceIncludes>
-								<dependencySourceInclude>org.quickfixj:quickfixj-core</dependencySourceInclude>
-								<dependencySourceInclude>org.quickfixj:quickfixj-codegenerator</dependencySourceInclude>
-								<dependencySourceInclude>org.quickfixj:quickfixj-dictgenerator</dependencySourceInclude>
+								<dependencySourceInclude>com.ig.otc:quickfixj-core</dependencySourceInclude>
+								<dependencySourceInclude>com.ig.otc:quickfixj-codegenerator</dependencySourceInclude>
+								<dependencySourceInclude>com.ig.otc:quickfixj-dictgenerator</dependencySourceInclude>
 							</dependencySourceIncludes>
 							<!-- disable links otherwise it runs again on all modules and it's too slow -->
 							<detectOfflineLinks>false</detectOfflineLinks>
