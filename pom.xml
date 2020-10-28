@@ -3,7 +3,7 @@
 
 	<groupId>com.ig.us.otc</groupId>
 	<artifactId>quickfixj-parent</artifactId>
-	<version>1.0.1-SNAPSHOT</version>
+	<version>1.0.3-SNAPSHOT</version>
 	<packaging>pom</packaging>
 
 	<name>QuickFIX/J Parent</name>
