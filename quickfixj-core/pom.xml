@@ -1,9 +1,9 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
     <modelVersion>4.0.0</modelVersion>
     <parent>
-        <groupId>com.ig.otc</groupId>
+        <groupId>com.ig.us.otc</groupId>
         <artifactId>quickfixj-parent</artifactId>
-        <version>2.0.3-SNAPSHOT</version>
+        <version>1.0.0-SNAPSHOT</version>
     </parent>
 
     <artifactId>quickfixj-core</artifactId>
@@ -117,12 +117,22 @@
             <version>2.1.30</version>
             <optional>true</optional>
         </dependency>
+		<dependency>
+			<groupId>com.ig.us.otc</groupId>
+            <artifactId>orchestra2quickfixj</artifactId>
+            <type>zip</type>
+            <version>${project.version}</version>
+		</dependency>
     </dependencies>
 
     <build>
         <resources>
             <resource>
                 <directory>../quickfixj-messages/quickfixj-messages-fixt11/src/main/resources</directory>
+            </resource>
+            <resource>
+            	<!-- FIX Latest dictionary is an imported dependency -->
+                <directory>${project.build.directory}/dependency/dictionary/latest</directory>
             </resource>
             <resource>
                 <directory>../quickfixj-messages/quickfixj-messages-fix50sp2/src/main/resources</directory>
@@ -158,6 +168,10 @@
                 <directory>../quickfixj-messages/quickfixj-messages-fixt11/src/main/resources</directory>
             </testResource>
             <testResource>
+            	<!-- FIX Latest dictionary is an imported dependency -->
+                <directory>${project.build.directory}/dependency/dictionary/latest</directory>
+            </testResource>
+            <testResource>
                 <directory>../quickfixj-messages/quickfixj-messages-fix50sp2/src/main/resources</directory>
             </testResource>
             <testResource>
@@ -188,7 +202,30 @@
 
         <plugins>
             <plugin>
-                <groupId>com.ig.otc</groupId>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-dependency-plugin</artifactId>
+                <executions>
+                    <execution>
+                        <id>unpack-dependencies</id>
+                        <phase>initialize</phase>
+                        <goals>
+                            <goal>unpack</goal>
+                        </goals>
+                        <configuration>
+                            <artifactItems>
+                                <artifactItem>
+									<groupId>com.ig.us.otc</groupId>
+									<artifactId>orchestra2quickfixj</artifactId>
+									<type>zip</type>
+                                    <outputDirectory>${project.build.directory}/dependency/dictionary/latest</outputDirectory>
+                                </artifactItem>            
+                            </artifactItems>
+                        </configuration>
+                    </execution>
+                </executions>
+            </plugin>
+			<plugin>
+                <groupId>com.ig.us.otc</groupId>
                 <artifactId>quickfixj-codegenerator</artifactId>
                 <version>${project.version}</version>
                 <executions>
@@ -200,6 +237,18 @@
                         <configuration>
                             <dictFile>../quickfixj-messages/quickfixj-messages-fixt11/src/main/resources/FIXT11.modified.xml</dictFile>
                             <packaging>quickfix.fixt11</packaging>
+                            <fieldPackage>quickfix.field</fieldPackage>
+                            <decimal>${generator.decimal}</decimal>
+                        </configuration>
+                    </execution>
+                    <execution>
+                        <id>FIXLatest.xml</id>
+                        <goals>
+                            <goal>generate</goal>
+                        </goals>
+                        <configuration>
+                            <dictFile>${project.build.directory}/dependency/dictionary/latest/FIX50SP2.xml</dictFile>
+                            <packaging>quickfix.FIXLatest.xml</packaging>
                             <fieldPackage>quickfix.field</fieldPackage>
                             <decimal>${generator.decimal}</decimal>
                         </configuration>
@@ -371,6 +420,7 @@
                             quickfix.fix50;resolution:=optional,
                             quickfix.fix50sp1;resolution:=optional,
                             quickfix.fix50sp2;resolution:=optional,
+                            quickfix.fixLatest;resolution:=optional,
                             quickfix.fixt11;resolution:=optional,
                             <!-- add the required imports -->
                             quickfix,quickfix.field,*
