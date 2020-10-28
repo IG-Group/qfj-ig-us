@@ -194,7 +194,7 @@
 
         <plugins>
             <plugin>
-                <groupId>org.quickfixj</groupId>
+                <groupId>com.ig.us.otc</groupId>
                 <artifactId>quickfixj-codegenerator</artifactId>
                 <version>${project.version}</version>
                 <executions>
@@ -216,7 +216,7 @@
                             <goal>generate</goal>
                         </goals>
                         <configuration>
-                            <dictFile>../quickfixj-orchestra/target/generated-resources/dictionary/FIX50SP2.xml</dictFile>
+                            <dictFile>../quickfixj-orchestra/target/generated-resources/dictionary/FIXLatest.xml</dictFile>
                             <packaging>quickfix.FIXLatest</packaging>
                             <fieldPackage>quickfix.field</fieldPackage>
                             <decimal>${generator.decimal}</decimal>

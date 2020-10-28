@@ -55,7 +55,7 @@
                             <maxmemory>12g</maxmemory>
                             <detectOfflineLinks>false</detectOfflineLinks>
                             <includeDependencySources>false</includeDependencySources>
-                            <sourcepath>${project.basedir}/../../quickfixj-core/target/generated-sources/quickfix/fixLatest;${project.basedir}/../../quickfixj-core/target/generated-sources/quickfix/field</sourcepath>
+                            <sourcepath>${project.basedir}/../../quickfixj-core/target/generated-sources/quickfix/FIXLatest;${project.basedir}/../../quickfixj-core/target/generated-sources/quickfix/field</sourcepath>
                         </configuration>
                     </execution>
                 </executions>
@@ -72,7 +72,7 @@
 						</goals>
 						<configuration>
 							<instructions>
-								<Export-Package>quickfix.field;version="${project.version}";uses:=quickfix,quickfix.fixLatest;version="${project.version}";uses:=quickfix,quickfix.field;version="${project.version}"</Export-Package>
+								<Export-Package>quickfix.field;version="${project.version}";uses:=quickfix,quickfix.FIXLatest;version="${project.version}";uses:=quickfix,quickfix.field;version="${project.version}"</Export-Package>
 								<Import-Package>quickfix,quickfix.field;version="${project.version}"</Import-Package>
 								<Require-Capability>osgi.ee;filter:="(&amp;(osgi.ee=JavaSE)(version=${jdkLevel}))"</Require-Capability>
 							</instructions>
@@ -88,9 +88,9 @@
 				<configuration>
 					<classesDirectory>${project.basedir}/../../quickfixj-core/target/classes/</classesDirectory>
 					<includes>
-						<include>FIX50SP2.xml</include>
+						<include>FIXLatest.xml</include>
 						<include>quickfix/field/*.class</include>
-						<include>quickfix/fixLatest/**</include>
+						<include>quickfix/FIXLatest/**</include>
 					</includes>
 					<archive>
 						<manifestFile>${project.build.outputDirectory}/META-INF/MANIFEST.MF</manifestFile>
@@ -104,8 +104,8 @@
 				<version>${maven-source-plugin-version}</version>
 				<configuration>
 					<includes>
-						<include>FIX50SP2.xml</include>
-						<include>quickfix/fixLatest/**</include>
+						<include>FIXLatest.xml</include>
+						<include>quickfix/FIXLatest/**</include>
 						<include>quickfix/field/**</include>
 					</includes>
 					<archive>
