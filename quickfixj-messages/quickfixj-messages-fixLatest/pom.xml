@@ -88,7 +88,7 @@
 				<configuration>
 					<classesDirectory>${project.basedir}/../../quickfixj-core/target/classes/</classesDirectory>
 					<includes>
-						<include>FIXLatest.xml</include>
+						<include>FIX50SP2.xml</include>
 						<include>quickfix/field/*.class</include>
 						<include>quickfix/fixLatest/**</include>
 					</includes>
@@ -104,7 +104,7 @@
 				<version>${maven-source-plugin-version}</version>
 				<configuration>
 					<includes>
-						<include>FIXLatest.xml</include>
+						<include>FIX50SP2.xml</include>
 						<include>quickfix/fixLatest/**</include>
 						<include>quickfix/field/**</include>
 					</includes>
