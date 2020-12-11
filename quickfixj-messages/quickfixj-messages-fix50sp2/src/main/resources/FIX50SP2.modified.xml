@@ -2471,6 +2471,7 @@
       <field name="Text" required="N"/>
       <field name="EncodedTextLen" required="N"/>
       <field name="EncodedText" required="N"/>
+      <field name="SubscriptionRequestType" required="N"/>
     </message>
     <message name="Quote" msgtype="S" msgcat="app">
       <!-- IG - made required -->
@@ -2546,6 +2547,7 @@
       <field name="Text" required="N"/>
       <field name="EncodedTextLen" required="N"/>
       <field name="EncodedText" required="N"/>
+      <field name="NetChgPrevDay" required="N"/>
     </message>
     <message name="SettlementInstructions" msgtype="T" msgcat="app">
       <field name="SettlInstMsgID" required="Y"/>
