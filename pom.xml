@@ -87,7 +87,7 @@
 		<maven-deploy-plugin-version>2.8.2</maven-deploy-plugin-version>
 		<nexus-staging-maven-plugin-version>1.6.8</nexus-staging-maven-plugin-version>
 		<build-helper-maven-plugin-version>3.0.0</build-helper-maven-plugin-version>
-		<fix.orchestra.version>0.1.55</fix.orchestra.version>
+		<fix.orchestra.version>0.1.58-SNAPSHOT</fix.orchestra.version>
 		<docgen.version>1.5.0</docgen.version>
 	</properties>
 	<dependencyManagement>
