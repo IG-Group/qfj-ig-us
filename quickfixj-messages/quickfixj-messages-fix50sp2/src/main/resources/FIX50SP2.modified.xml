@@ -18,10 +18,10 @@
       <field name="UnsolicitedIndicator" required="Y"/>
       <field name="TotalNetValue" required="N"/>
       <field name="MarginExcess" required="N"/>
-      <component name="MarginAmountData" required="Y"/>
+      <component name="MarginAmountData" required="N"/>
       <component name="Parties" required="Y"/>
-      <component name="CollateralAmountGrp" required="Y"/>
-      <component name="AccountSummaryItemGrp" required="Y"/>
+      <component name="CollateralAmountGrp" required="N"/>
+      <component name="AccountSummaryItemGrp" required="N"/>
       <field name="Text" required="N"/>
     </message>
     <!-- END Custom Defined IG Messages -->
