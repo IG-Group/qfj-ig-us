@@ -5534,9 +5534,9 @@
     </component>
     <component name="CollateralAmountGrp">
       <group name="NoCollateralAmounts" required="Y">
-         <field name="CollateralType" required="Y"/>
          <field name="CurrentCollateralAmount" required="Y"/>
          <field name="CollateralCurrency" required="N"/>
+         <field name="CollateralType" required="Y"/>
       </group>
     </component>
     <component name="AccountSummaryItemGrp">
@@ -10171,9 +10171,9 @@
 
     <!-- Collateral Amount Data - see http://fixprotocol.org/specifications/EP117 -->
     <field number="1703" name="NoCollateralAmounts" type="NUMINGROUP"/>
-    <field number="1704" name="CollateralType" type="STRING"/>
-    <field number="1705" name="CurrentCollateralAmount" type="AMT"/>
-    <field number="1706" name="CollateralCurrency" type="CURRENCY"/>
+    <field number="1704" name="CurrentCollateralAmount" type="AMT"/>
+    <field number="1705" name="CollateralCurrency" type="CURRENCY"/>
+    <field number="1706" name="CollateralType" type="STRING"/>
 
     <!-- IG - added Offer ID -->
     <field number="1867" name="OfferID" type="STRING"/>
