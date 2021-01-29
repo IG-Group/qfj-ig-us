@@ -13,15 +13,15 @@
       <field name="AccountSummaryReportID" required="Y"/>
       <field name="AccountSummaryReportRequestID" required="Y"/>
       <field name="AccountSummaryReportRequestResult" required="Y"/>
-      <field name="ClearingBusinessDate" required="Y"/>
+      <!-- IG Customisation Not required in cases of request rejection -->
+      <field name="ClearingBusinessDate" required="N"/>
       <field name="TransactTime" required="N"/>
-      <field name="UnsolicitedIndicator" required="Y"/>
       <field name="TotalNetValue" required="N"/>
       <field name="MarginExcess" required="N"/>
-      <component name="MarginAmountData" required="Y"/>
+      <component name="MarginAmountData" required="N"/>
       <component name="Parties" required="Y"/>
-      <component name="CollateralAmountGrp" required="Y"/>
-      <component name="AccountSummaryItemGrp" required="Y"/>
+      <component name="CollateralAmountGrp" required="N"/>
+      <component name="AccountSummaryItemGrp" required="N"/>
       <field name="Text" required="N"/>
     </message>
     <!-- END Custom Defined IG Messages -->
@@ -10148,8 +10148,8 @@
 
   <!-- IG custom fields added for Account Summary Report - see http://fixprotocol.org/specifications/EP117 -->
     <field number="1699" name="AccountSummaryReportID" type="STRING"/>
-    <field number="5011" name="AccountSummaryReportRequestID" type="STRING"/>
-    <field number="5012" name="AccountSummaryReportRequestResult" type="INT">
+    <field number="20105" name="AccountSummaryReportRequestID" type="STRING"/>
+    <field number="20106" name="AccountSummaryReportRequestResult" type="INT">
       <value enum="0" description="VALID_REQUEST"/>
       <value enum="1" description="INVALID_OR_UNSUPPORTED_REQUEST"/>
       <value enum="2" description="UNKNOWN_ACCOUNT"/>
