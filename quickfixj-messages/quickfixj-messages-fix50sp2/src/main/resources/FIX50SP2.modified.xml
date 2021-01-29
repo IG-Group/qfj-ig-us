@@ -15,6 +15,7 @@
       <field name="AccountSummaryReportRequestResult" required="Y"/>
       <!-- IG Customisation Not required in cases of request rejection -->
       <field name="ClearingBusinessDate" required="N"/>
+      <field name="Currency" required="N"/>
       <field name="TransactTime" required="N"/>
       <field name="TotalNetValue" required="N"/>
       <field name="MarginExcess" required="N"/>
