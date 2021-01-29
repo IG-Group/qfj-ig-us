@@ -10156,7 +10156,7 @@
       <value enum="2" description="UNKNOWN_ACCOUNT"/>
       <value enum="3" description="UNAUTHORIZED_FOR_ACCOUNT_SUMMARY_REQUEST"/>
       <value enum="4" description="NOT_SUPPORTED"/>
-      <value enum="99" description="OTHER"/>
+      <value enum="5" description="OTHER"/>
     </field>
 
      <!-- MarginAmtData - see http://fixprotocol.org/specifications/EP102 -->
