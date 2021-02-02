@@ -15,6 +15,7 @@
       <field name="AccountSummaryReportRequestResult" required="Y"/>
       <!-- IG Customisation Not required in cases of request rejection -->
       <field name="ClearingBusinessDate" required="N"/>
+      <field name="Currency" required="N"/>
       <field name="TransactTime" required="N"/>
       <field name="TotalNetValue" required="N"/>
       <field name="MarginExcess" required="N"/>
@@ -5534,9 +5535,9 @@
     </component>
     <component name="CollateralAmountGrp">
       <group name="NoCollateralAmounts" required="Y">
-         <field name="CollateralType" required="Y"/>
          <field name="CurrentCollateralAmount" required="Y"/>
          <field name="CollateralCurrency" required="N"/>
+         <field name="CollateralType" required="Y"/>
       </group>
     </component>
     <component name="AccountSummaryItemGrp">
@@ -10155,7 +10156,7 @@
       <value enum="2" description="UNKNOWN_ACCOUNT"/>
       <value enum="3" description="UNAUTHORIZED_FOR_ACCOUNT_SUMMARY_REQUEST"/>
       <value enum="4" description="NOT_SUPPORTED"/>
-      <value enum="99" description="OTHER"/>
+      <value enum="5" description="OTHER"/>
     </field>
 
      <!-- MarginAmtData - see http://fixprotocol.org/specifications/EP102 -->
@@ -10171,9 +10172,9 @@
 
     <!-- Collateral Amount Data - see http://fixprotocol.org/specifications/EP117 -->
     <field number="1703" name="NoCollateralAmounts" type="NUMINGROUP"/>
-    <field number="1704" name="CollateralType" type="STRING"/>
-    <field number="1705" name="CurrentCollateralAmount" type="AMT"/>
-    <field number="1706" name="CollateralCurrency" type="CURRENCY"/>
+    <field number="1704" name="CurrentCollateralAmount" type="AMT"/>
+    <field number="1705" name="CollateralCurrency" type="CURRENCY"/>
+    <field number="1706" name="CollateralType" type="STRING"/>
 
     <!-- IG - added Offer ID -->
     <field number="1867" name="OfferID" type="STRING"/>
