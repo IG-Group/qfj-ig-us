@@ -861,10 +861,8 @@
       <component name="MiscFeesGrp" required="N"/>
     </message>
     <message name="PositionMaintenanceRequest" msgtype="AL" msgcat="app">
-      <!-- Required by IG -->
-      <field name="PosReqID" required="Y"/>
-      <!-- Required by IG -->
-      <field name="PositionID" required="Y"/>
+      <field name="PosReqID" required="N"/>
+      <field name="PosTransType" required="Y"/>
       <field name="PosTransType" required="Y"/>
       <field name="PosMaintAction" required="Y"/>
       <field name="OrigPosReqRefID" required="N"/>
