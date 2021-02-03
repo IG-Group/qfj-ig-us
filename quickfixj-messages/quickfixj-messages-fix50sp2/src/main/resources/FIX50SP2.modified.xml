@@ -863,7 +863,6 @@
     <message name="PositionMaintenanceRequest" msgtype="AL" msgcat="app">
       <field name="PosReqID" required="N"/>
       <field name="PosTransType" required="Y"/>
-      <field name="PosTransType" required="Y"/>
       <field name="PosMaintAction" required="Y"/>
       <field name="OrigPosReqRefID" required="N"/>
       <field name="PosMaintRptRefID" required="N"/>
@@ -10173,7 +10172,6 @@
          <value enum="8" description="LARGE_IN_SCALE"/>
          <value enum="9" description="HIDDEN"/>
          <!-- IG custom fields -->
-         <value enum="1000" description="PRICE_GUARANTEE_INSTRUCTION"/>
          <value enum="1001" description="ATTACHED_ORDER"/>
     </field>
     <field number="2595" name="OrderAttributeValue" type="STRING"/>
