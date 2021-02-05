@@ -861,13 +861,7 @@
       <component name="MiscFeesGrp" required="N"/>
     </message>
     <message name="PositionMaintenanceRequest" msgtype="AL" msgcat="app">
-      <!-- Required by IG -->
-      <field name="PosReqID" required="Y"/>
-      <!-- PositionID in PositionMaintenanceRequest is an IG Customisation
-           it is optional in the dictionary but is required for OTC API V2
-           in versions before V2 a deprecated PositionId field is used
-           (in the PositionQty component) -->
-      <field name="PositionID" required="N"/>
+      <field name="PosReqID" required="N"/>
       <field name="PosTransType" required="Y"/>
       <field name="PosMaintAction" required="Y"/>
       <field name="OrigPosReqRefID" required="N"/>
@@ -3636,12 +3630,6 @@
         <field name="LongQty" required="N"/>
         <field name="ShortQty" required="N"/>
         <field name="PosQtyStatus" required="N"/>
-        <!--  IG Customisation -->
-        <field name="PositionIdDeprecated" required="N"/>
-        <field name="OriginatingClientOrderRef" required="N"/>
-        <field name="OriginatingOrderIDRef" required="N"/>
-        <field name="ClosingOrderIDRef" required="N"/>
-        <!-- End IG Customisation -->
         <field name="QuantityDate" required="N"/>
         <component name="NestedParties" required="N"/>
       </group>
@@ -5655,9 +5643,6 @@
     <field number="22" name="SecurityIDSource" type="STRING">
       <!--  IG Customisation, removed all but MarketPlaceAssignedIdentifier-->
       <value enum="M" description="MARKETPLACE_ASSIGNED_IDENTIFIER"/>
-      <!--  IG Customisation -->
-      <value enum="101" description="IG_ID"/>
-      <value enum="102" description="IG_CHART_ID"/>
     </field>
     <field number="23" name="IOIID" type="STRING"/>
     <field number="25" name="IOIQltyInd" type="CHAR">
@@ -7087,6 +7072,10 @@
       <value enum="10" description="WAREHOUSE_RECAP"/>
       <value enum="11" description="PEG_REFRESH"/>
       <value enum="99" description="OTHER"/>
+      <value enum="100" description="SYSTEM_STOP_LOSS_SIZE_ADJUSTMENT"/>
+      <value enum="101" description="SYSTEM_TAKE_PROFIT_SIZE_ADJUSTMENT"/>
+      <value enum="102" description="SYSTEM_TRAILING_STOP_ADJUSTMENT"/>
+      <value enum="103" description="SYSTEM_OTO_CONTINGENT_ADJUSTMENT"/>
     </field>
     <field number="379" name="BusinessRejectRefID" type="STRING"/>
     <field number="380" name="BusinessRejectReason" type="INT">
@@ -10125,17 +10114,11 @@
     </field>
     <!-- New field https://fiximate.fixtrading.org/en/FIX.5.0SP2_EP257/tag2130.html -->
     <field number="2130" name="ComplexEventStrikePrice" type="PRICE"/>
-    <!-- New Field for Position ID taken from obsolete http://www.fixprotocol.org/specifications/fields
-         This is deprecated (and not used) in OTC API 2
-         now renamed from PositionId to PositionIdDeprecated -->
-    <field number="7324" name="PositionIdDeprecated" type="STRING"/>
+
     <!-- New FIX Standard Field for Position ID EP 199 added to dictionary by IG-->
     <field number="2618" name="PositionID" type="STRING"/>
 
-    <!-- New Fields for Originating (Client/IG) Order Refs, Closing Order ID and Open Price in Position Report - IG customisation -->
-    <field number="20101" name="OriginatingClientOrderRef" type="STRING"/>
-    <field number="20102" name="OriginatingOrderIDRef" type="STRING"/>
-    <field number="20103" name="ClosingOrderIDRef" type="STRING"/>
+    <!-- Open Price in Position Report - IG customisation -->
     <field number="20104" name="OpenPrice" type="PRICE"/>
 
     <!-- New Field for trailing stop increment : See http://www.fixprotocol.org/specifications/fields -->
@@ -10179,7 +10162,7 @@
     <!-- IG - added Offer ID -->
     <field number="1867" name="OfferID" type="STRING"/>
 
-    <!-- Guaranted Stop -->
+    <!-- OrderAttributes - see http://fixprotocol.org/specifications/EP222 -->
     <field number="2593" name="NoOrderAttributes" type="NUMINGROUP"/>
     <field number="2594" name="OrderAttributeType" type="INT">
          <value enum="0" description="AGGREGATED_ORDER"/>
@@ -10192,12 +10175,10 @@
          <value enum="7" description="ORDER_EXECUTION_INSTRUCTED_BY_CLIENT"/>
          <value enum="8" description="LARGE_IN_SCALE"/>
          <value enum="9" description="HIDDEN"/>
-         <value enum="1000" description="PRICE_GUARANTEE_INSTRUCTION"/>
+         <!-- IG custom fields -->
+         <value enum="1001" description="ATTACHED_ORDER"/>
     </field>
-    <field number="2595" name="OrderAttributeValue" type="BOOLEAN">
-         <value enum="N" description="PRICE_NOT_GUARANTEED"/>
-         <value enum="Y" description="PRICE_GUARANTEED"/>
-    </field>
+    <field number="2595" name="OrderAttributeValue" type="STRING"/>
 
     <!-- IG custom fields added for Account Summary Report -->
     <field number="5017" name="NoAccountSummaryItems" type="NUMINGROUP"/>
