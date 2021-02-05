@@ -7072,6 +7072,10 @@
       <value enum="10" description="WAREHOUSE_RECAP"/>
       <value enum="11" description="PEG_REFRESH"/>
       <value enum="99" description="OTHER"/>
+      <value enum="100" description="SYSTEM_STOP_LOSS_SIZE_ADJUSTMENT"/>
+      <value enum="101" description="SYSTEM_TAKE_PROFIT_SIZE_ADJUSTMENT"/>
+      <value enum="102" description="SYSTEM_TRAILING_STOP_ADJUSTMENT"/>
+      <value enum="103" description="SYSTEM_OTO_CONTINGENT_ADJUSTMENT"/>
     </field>
     <field number="379" name="BusinessRejectRefID" type="STRING"/>
     <field number="380" name="BusinessRejectReason" type="INT">

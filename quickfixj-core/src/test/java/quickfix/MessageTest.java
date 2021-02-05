@@ -670,7 +670,7 @@ public class MessageTest {
         noc.getHeader().setString(TargetCompID.FIELD, "target");
         noc.getHeader().setString(SendingTime.FIELD, "20060319-09:08:20.881");
 
-        noc.setString(SecurityIDSource.FIELD, SecurityIDSource.EXCHANGE_SYMBOL);
+        noc.setString(SecurityIDSource.FIELD, SecurityIDSource.MARKETPLACE_ASSIGNED_IDENTIFIER);
         noc.setChar(OrdType.FIELD, OrdType.LIMIT);
         noc.setDouble(Price.FIELD, 9.00);
         noc.setString(SecurityID.FIELD, "ABC");
@@ -719,7 +719,7 @@ public class MessageTest {
         noc.addGroup(side);
 
         final String expectedMessage = "8=FIX.4.4\0019=247\00135=s\00134=5\00149=sender\00152=20060319-09:08:20.881\001"
-            + "56=target\00122=8\00140=2\00144=9\00148=ABC\00155=ABC\00160=20060319-09:08:19\001548=184214\001549=2\001"
+            + "56=target\00122=M\00140=2\00144=9\00148=ABC\00155=ABC\00160=20060319-09:08:19\001548=184214\001549=2\001"
             + "550=0\001552=2\00154=1\001453=2\001448=8\001447=D\001452=4\001448=AAA35777\001447=D\001452=3\00138=9\00154=2\001"
             + "453=2\001448=8\001447=D\001452=4\001448=aaa\001447=D\001452=3\00138=9\00110=056\001";
         assertEquals("wrong message", expectedMessage, noc.toString());
