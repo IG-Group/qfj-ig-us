@@ -1015,6 +1015,7 @@
       <field name="SettlPriceType" required="N"/>
       <field name="PriorSettlPrice" required="N"/>
       <field name="SettlCurrFxRate" required="N"/>    <!-- IG customisation for Convert on Close -->
+      <field name="LastRptRequested" required="N"/>    <!-- IG customisation -->
       <field name="MatchStatus" required="N"/>
       <component name="InstrmtLegGrp" required="N"/>
       <component name="PosUndInstrmtGrp" required="N"/>
