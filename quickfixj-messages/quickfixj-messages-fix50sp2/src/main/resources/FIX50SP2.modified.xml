@@ -2295,7 +2295,7 @@
       <component name="Instrument" required="Y"/>
       <component name="FinancingDetails" required="N"/>
       <component name="UndInstrmtGrp" required="N"/>
-      <field name="Side" required="Y"/>
+      <field name="Side" required="N"/>
     </message>
     <message name="AllocationInstruction" msgtype="J" msgcat="app">
       <field name="AllocID" required="Y"/>
