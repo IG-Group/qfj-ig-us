@@ -3,7 +3,7 @@
     <parent>
         <groupId>com.ig.us.otc</groupId>
         <artifactId>quickfixj-parent</artifactId>
-        <version>1.0.16</version>
+        <version>1.0.17-SNAPSHOT</version>
     </parent>
 
     <artifactId>quickfixj-orchestra</artifactId>
