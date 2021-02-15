@@ -151,8 +151,7 @@
       <field name="ParticipationRate" required="N"/>
       <field name="TargetStrategyPerformance" required="N"/>
 
-      <!-- required by IG -->
-      <field name="Currency" required="Y"/>
+      <field name="Currency" required="N"/>
       <field name="ComplianceID" required="N"/>
       <field name="SolicitedFlag" required="N"/>
       <field name="TimeInForce" required="N"/>
