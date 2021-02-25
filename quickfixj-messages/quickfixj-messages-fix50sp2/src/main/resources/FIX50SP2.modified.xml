@@ -112,7 +112,7 @@
       <field name="ExecRestatementReason" required="N"/>
 
       <!-- required by IG -->
-      <field name="Account" required="Y"/>
+      <field name="Account" required="N"/>
       <field name="AcctIDSource" required="N"/>
       <field name="AccountType" required="N"/>
       <field name="DayBookingInst" required="N"/>
