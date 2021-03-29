@@ -14,7 +14,6 @@
 		QuickFIX/J is a full featured messaging engine for the FIX protocol.
 		It is a 100% Java open source implementation of the popular C++ QuickFIX engine.
 	</description>
-	<url>http://www.quickfixj.org</url>
 
 	<licenses>
 		<license>
@@ -35,12 +34,7 @@
 			<name>IG Group</name>
 			<url>https://www.ig.com/</url>
 	</organization>
-	<licenses>
-		<license>
-			<name>The QuickFIX Software License, Version 1.0</name>
-			<url>https://www.quickfixj.org/documentation/license.html</url>
-		</license>
-	</licenses>
+
 	<url>https://github.com/IG-Group/qfj-ig-us</url>
 
 	<developers>
