@@ -20,18 +20,34 @@
 		<license>
 			<name>The QuickFIX Software License, Version 1.0</name>
 			<url>http://www.quickfixj.org/documentation/license.html</url>
-			<distribution>repo</distribution>
 		</license>
 	</licenses>
 
 
 	<scm>
-		<connection>scm:git:ssh://git.iggroup.local:7999/fo/quickfixj-ig-us.git</connection>
-		<url>https://git.iggroup.local/scm/fo/quickfixj-ig-us.git</url>
-	  <tag>HEAD</tag>
+		<!-- developerConnection has to be https otherwise the github action cannot push during a release-->
+		<developerConnection>scm:git:https://github.com/IG-Group/fix-ig-us-otc</developerConnection>
+		<url>https://github.com/IG-Group/fix-ig-us-otc.git</url>
+		<connection>scm:git:git://git@github.com/IG-Group/fix-ig-us-otc.git</connection>
+		<tag>HEAD</tag>
   </scm>
+	<organization>
+			<name>IG Group</name>
+			<url>https://www.ig.com/</url>
+	</organization>
+	<licenses>
+		<license>
+			<name>The QuickFIX Software License, Version 1.0</name>
+			<url>https://www.quickfixj.org/documentation/license.html</url>
+		</license>
+	</licenses>
+	<url>https://github.com/IG-Group/fix-ig-us-otc</url>
 
 	<developers>
+		<developer>
+					<name>FIX API Team</name>
+					<email>fixdevelopment@ig.com</email>
+		</developer>
 		<developer>
 			<id>chrjohn</id>
 			<name>Christoph John</name>
@@ -46,8 +62,8 @@
 	</contributors>
 
 	<issueManagement>
-		<system>JIRA</system>
-		<url>http://www.quickfixj.org/jira/</url>
+			<system>GitHub</system>
+			<url>https://github.com/IG-Group/fix-ig-us-ot/issues</url>
 	</issueManagement>
 
 	<prerequisites>
@@ -84,7 +100,7 @@
 		<maven-assembly-plugin-version>3.1.0</maven-assembly-plugin-version>
 		<maven-bundle-plugin-version>3.5.1</maven-bundle-plugin-version>
 		<maven-gpg-plugin-version>1.6</maven-gpg-plugin-version>
-		<maven-deploy-plugin-version>2.8.2</maven-deploy-plugin-version>
+		<maven-deploy-plugin-version>3.0.0-M1/maven-deploy-plugin-version>
 		<nexus-staging-maven-plugin-version>1.6.8</nexus-staging-maven-plugin-version>
 		<build-helper-maven-plugin-version>3.0.0</build-helper-maven-plugin-version>
 		<fix.orchestra.version>0.2.3</fix.orchestra.version>
@@ -109,6 +125,15 @@
 	<build>
 		<pluginManagement>
 			<plugins>
+				<plugin>
+					<groupId>org.apache.maven.plugins</groupId>
+					<artifactId>maven-release-plugin</artifactId>
+					<version>3.0.0-M1</version>
+					<configuration>
+						<releaseProfiles>sonatype-oss-release</releaseProfiles>
+						<tagNameFormat>release-@{project.version}</tagNameFormat>
+					</configuration>
+				</plugin>
 				<plugin>
 					<groupId>org.apache.maven.plugins</groupId>
 					<artifactId>maven-deploy-plugin</artifactId>
@@ -308,19 +333,54 @@
 				</plugins>
 			</build>
 		</profile>
+		<profile>
+			<id>sonatype-oss-release</id>
+			<build>
+				<plugins>
+                            <plugin>
+			      <groupId>org.sonatype.plugins</groupId>
+			      <artifactId>nexus-staging-maven-plugin</artifactId>
+			      <version>1.6.7</version>
+			      <extensions>true</extensions>
+			      <configuration>
+			        <serverId>ossrh</serverId>
+			        <nexusUrl>https://oss.sonatype.org/</nexusUrl>
+			        <autoReleaseAfterClose>true</autoReleaseAfterClose>
+			      </configuration>
+			    </plugin>
+
+					<plugin>
+						<groupId>org.apache.maven.plugins</groupId>
+						<artifactId>maven-gpg-plugin</artifactId>
+						<version>1.6</version>
+						<configuration>
+						  <gpgArguments>
+						      <arg>--pinentry-mode</arg>
+						      <arg>loopback</arg>
+						  </gpgArguments>
+						</configuration>
+						<executions>
+							<execution>
+								<id>sign-artifacts</id>
+								<phase>verify</phase>
+								<goals>
+									<goal>sign</goal>
+								</goals>
+							</execution>
+						</executions>
+					</plugin>
+				</plugins>
+			</build>
+			<distributionManagement>
+			  <snapshotRepository>
+			    <id>ossrh</id>
+			    <url>https://oss.sonatype.org/content/repositories/snapshots</url>
+			  </snapshotRepository>
+			  <repository>
+			    <id>ossrh</id>
+			    <url>https://oss.sonatype.org/service/local/staging/deploy/maven2/</url>
+			  </repository>
+			</distributionManagement>
+		</profile>
 	</profiles>
-
-	<distributionManagement>
-		<snapshotRepository>
-			<id>ig.snapshots</id>
-			<name>ig-repository</name>
-			<url>${maven.repo.url.snapshots}</url>
-		</snapshotRepository>
-		<repository>
-			<id>ig.releases</id>
-			<name>ig-repository</name>
-			<url>${maven.repo.url.releases}</url>
-		</repository>
-	</distributionManagement>
-
 </project>

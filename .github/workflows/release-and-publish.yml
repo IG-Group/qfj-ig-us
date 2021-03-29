@@ -1,0 +1,54 @@
+# This is a basic workflow to help you get started with Actions
+
+name: Release and  Publish to OSSRH (maven central)
+
+# Controls when the action will run.
+on:
+  # Triggers the workflow on push or pull request events but only for the master branch
+  push:
+    branches: [ master ]
+
+# Allows you to run this workflow manually from the Actions tab
+  workflow_dispatch:
+
+# A workflow run is made up of one or more jobs that can run sequentially or in parallel
+jobs:
+  # This workflow contains a single job called "build"
+  build:
+    # The type of runner that the job will run on
+    runs-on: ubuntu-latest
+    timeout-minutes: 90
+    # Steps represent a sequence of tasks that will be executed as part of the job
+    steps:
+      # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
+      - uses: actions/checkout@v2
+      # see https://github.com/actions/setup-java
+      - name: Set up JDK 1.8 and .m2/settings.xml
+        uses: actions/setup-java@v1
+        with:
+          java-version: 1.8
+          server-id: ossrh
+          server-username: MAVEN_USERNAME # env variable for username in release:perform
+          server-password: MAVEN_CENTRAL_TOKEN # env variable for token in release:perform
+          gpg-private-key: ${{ secrets.OSSRH_GPG_SECRET_KEY }} # Value of the GPG private key to import
+          gpg-passphrase: MAVEN_GPG_PASSPHRASE # env variable for GPG private key passphrase
+      - name: Configure Git user
+        run: |
+          git config user.name github-actions
+          git config user.email github-actions@github.com
+      # see https://blog.frankel.ch/github-actions-maven-releases/
+      - id: release-prepare-perform
+        name: release prepare perform
+        env:
+          MAVEN_USERNAME: ${{ secrets.OSSRH_USERNAME }}
+          MAVEN_CENTRAL_TOKEN: ${{ secrets.OSSRH_TOKEN }}
+          MAVEN_GPG_PASSPHRASE: ${{ secrets.OSSRH_GPG_SECRET_KEY_PASSWORD }}
+          MAVEN_OPTS: -Xms1024m -Xmx2048m
+        run: |
+          mvn \
+            --no-transfer-progress \
+            --batch-mode \
+            --projects quickfixj-messages/quickfixj-messages-fix50sp2,quickfixj-messages/quickfixj-messages-fixt11 \
+            --also-make "-Darguments=-Dgenerator.decimal=true -DskipTests" \
+            -DdryRun \
+            release:prepare release:perform

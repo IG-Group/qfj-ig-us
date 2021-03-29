@@ -1,3 +1,19 @@
+# THIS IS THE IG US CUSTOMIZATION OF QUCIKCFIXJ
+
+If you are looking for the quickfixj project look in the [quickfj github project](https://github.com/quickfix-j/quickfixj)
+
+This is the canonical customization of quickfixj in compliance with IG US Rules of engagement (ROE in [ig-orchestrations](https://github.com/IG-Group/ig-orchestrations)). This is project is temporary until quickfixj supports fixLatest out of the box.
+
+Contact [IG](mailto:fixdevelopment@ig.com) for the right version and credentials to use.
+
+This product includes software developed by
+       quickfixengine.org (http://www.quickfixengine.org/).
+
+The names "QuickFIX" and "quickfixengine.org" are
+          not  used to endorse or promote this product.
+# Original README
+
+
 QuickFIX/J
 ==========
 
@@ -218,7 +234,7 @@ public class EmailForwarder {
     }
 }
 ```
-<code>ApplicationFunctionalAdapter</code> and <code>ApplicationExtendedFunctionalAdapter</code> support multiple registration to the same event, and the registered callbacks are invoked in the FIFO manner. 
+<code>ApplicationFunctionalAdapter</code> and <code>ApplicationExtendedFunctionalAdapter</code> support multiple registration to the same event, and the registered callbacks are invoked in the FIFO manner.
 
 However FIFO cannot be guaranteed between registration with specific message type (e.g. <code>quickfix.fix44.Email</code>) and that without specific message type. For example, there is no invocation order guarantee between the following two callbacks:
 
