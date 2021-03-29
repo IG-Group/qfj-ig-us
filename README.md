@@ -2,7 +2,7 @@
 
 If you are looking for the quickfixj project look in the [quickfj github project](https://github.com/quickfix-j/quickfixj)
 
-This is the canonical customization of quickfixj in compliance with IG US Rules of engagement (ROE in [ig-orchestrations](https://github.com/IG-Group/ig-orchestrations)). This is project is temporary until quickfixj supports fixLatest out of the box.
+This is the canonical customization of quickfixj in compliance with IG US Rules of engagement (ROE in [ig-orchestrations](https://github.com/IG-Group/ig-orchestrations)). This project is temporary until quickfixj supports fixLatest out of the box.
 
 Contact [IG](mailto:fixdevelopment@ig.com) for the right version and credentials to use.
 
@@ -11,6 +11,7 @@ This product includes software developed by
 
 The names "QuickFIX" and "quickfixengine.org" are
           not  used to endorse or promote this product.
+
 # Original README
 
 
