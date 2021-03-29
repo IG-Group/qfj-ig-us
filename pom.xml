@@ -26,9 +26,9 @@
 
 	<scm>
 		<!-- developerConnection has to be https otherwise the github action cannot push during a release-->
-		<developerConnection>scm:git:https://github.com/IG-Group/fix-ig-us-otc</developerConnection>
-		<url>https://github.com/IG-Group/fix-ig-us-otc.git</url>
-		<connection>scm:git:git://git@github.com/IG-Group/fix-ig-us-otc.git</connection>
+		<developerConnection>scm:git:https://github.com/IG-Group/qfj-ig-us.git</developerConnection>
+		<url>https://github.com/IG-Group/qfj-ig-us.git</url>
+		<connection>scm:git:git://git@github.com/IG-Group/qfj-ig-us.git</connection>
 		<tag>HEAD</tag>
   </scm>
 	<organization>
@@ -41,7 +41,7 @@
 			<url>https://www.quickfixj.org/documentation/license.html</url>
 		</license>
 	</licenses>
-	<url>https://github.com/IG-Group/fix-ig-us-otc</url>
+	<url>https://github.com/IG-Group/qfj-ig-us</url>
 
 	<developers>
 		<developer>
@@ -63,7 +63,7 @@
 
 	<issueManagement>
 			<system>GitHub</system>
-			<url>https://github.com/IG-Group/fix-ig-us-ot/issues</url>
+			<url>https://github.com/IG-Group/qfj-ig-us/issues</url>
 	</issueManagement>
 
 	<prerequisites>
