@@ -48,7 +48,6 @@ jobs:
           mvn \
             --no-transfer-progress \
             --batch-mode \
-            --projects quickfixj-messages/quickfixj-messages-fix50sp2,quickfixj-messages/quickfixj-messages-fixt11 \
-            --also-make "-Darguments=-Dgenerator.decimal=true -DskipTests" \
+            "-Darguments=-Dgenerator.decimal=true -DskipTests" \
             -DdryRun \
             release:prepare release:perform
