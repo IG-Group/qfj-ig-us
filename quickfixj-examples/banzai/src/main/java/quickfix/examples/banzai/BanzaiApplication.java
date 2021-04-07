@@ -228,7 +228,7 @@ public class BanzaiApplication implements Application {
             order.setRejected(true);
             order.setOpen(0);
         } else if (ordStatus.valueEquals(OrdStatus.CANCELED)
-                || ordStatus.valueEquals(OrdStatus.DONE_FOR_DAY)) {
+                || ordStatus.valueEquals(OrdStatus.CANCELED)) {
             order.setCanceled(true);
             order.setOpen(0);
         } else if (ordStatus.valueEquals(OrdStatus.NEW)) {
@@ -568,15 +568,15 @@ public class BanzaiApplication implements Application {
     static {
         sideMap.put(OrderSide.BUY, new Side(Side.BUY));
         sideMap.put(OrderSide.SELL, new Side(Side.SELL));
-        sideMap.put(OrderSide.SHORT_SELL, new Side(Side.SELL_SHORT));
-        sideMap.put(OrderSide.SHORT_SELL_EXEMPT, new Side(Side.SELL_SHORT_EXEMPT));
-        sideMap.put(OrderSide.CROSS, new Side(Side.CROSS));
-        sideMap.put(OrderSide.CROSS_SHORT, new Side(Side.CROSS_SHORT));
+        sideMap.put(OrderSide.SHORT_SELL, new Side(Side.UNDISCLOSED));
+        sideMap.put(OrderSide.SHORT_SELL_EXEMPT, new Side(Side.UNDISCLOSED));
+        sideMap.put(OrderSide.CROSS, new Side(Side.UNDISCLOSED));
+        sideMap.put(OrderSide.CROSS_SHORT, new Side(Side.UNDISCLOSED));
 
         typeMap.put(OrderType.MARKET, new OrdType(OrdType.MARKET));
         typeMap.put(OrderType.LIMIT, new OrdType(OrdType.LIMIT));
         typeMap.put(OrderType.STOP, new OrdType(OrdType.STOP));
-        typeMap.put(OrderType.STOP_LIMIT, new OrdType(OrdType.STOP_LIMIT));
+        typeMap.put(OrderType.STOP_LIMIT, new OrdType(OrdType.STOP));
 
         tifMap.put(OrderTIF.DAY, new TimeInForce(TimeInForce.DAY));
         tifMap.put(OrderTIF.IOC, new TimeInForce(TimeInForce.IMMEDIATE_OR_CANCEL));
