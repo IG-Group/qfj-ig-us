@@ -170,7 +170,7 @@ public class Application extends quickfix.MessageCracker implements quickfix.App
             BigDecimal thePrice = new BigDecimal("" + price.getValue());
 
             return (side == Side.BUY && thePrice.compareTo(limitPrice) <= 0)
-                    || ((side == Side.SELL || side == Side.SELL_SHORT) && thePrice.compareTo(limitPrice) >= 0);
+                    || ((side == Side.SELL) && thePrice.compareTo(limitPrice) >= 0);
         }
         return true;
     }
@@ -186,7 +186,7 @@ public class Application extends quickfix.MessageCracker implements quickfix.App
             char side = message.getChar(Side.FIELD);
             if (side == Side.BUY) {
                 price = new Price(marketDataProvider.getAsk(message.getString(Symbol.FIELD)));
-            } else if (side == Side.SELL || side == Side.SELL_SHORT) {
+            } else if (side == Side.SELL) {
                 price = new Price(marketDataProvider.getBid(message.getString(Symbol.FIELD)));
             } else {
                 throw new RuntimeException("Invalid order side: " + side);
