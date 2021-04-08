@@ -49,5 +49,4 @@ jobs:
             --no-transfer-progress \
             --batch-mode \
             "-Darguments=-Dgenerator.decimal=true -DskipTests" \
-            -DdryRun \
             release:prepare release:perform
