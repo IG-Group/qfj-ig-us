@@ -1,4 +1,4 @@
-# THIS IS THE IG US CUSTOMIZATION OF QUCIKCFIXJ
+# THIS IS THE IG US CUSTOMIZATION OF QUICKFIXJ
 
 If you are looking for the quickfixj project look in the [quickfj github project](https://github.com/quickfix-j/quickfixj)
 
